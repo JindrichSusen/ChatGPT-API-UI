@@ -219,46 +219,27 @@
           <option value="false">Request (Experimental)</option>
         </select>
       </div>
-      {#if modelNameField !== oldNameField}
-        <h1 class=" text-red-500 font-bold text-sm">
-          Pricing updates only after saving!
-        </h1>
-      {/if}
-      <div class="mb-4 flex flex-col justify-between items-start">
-        <div class="flex justify-between items-center">
-          <p class="block font-bold">
-            Tokens spent: {$combinedTokens.toFixed(0)} | {(
-              ($combinedTokens / 1000) *
-              (($gptModel.inputCost + $gptModel.outputCost) / 2)
-            ).toFixed(4)} $
-          </p>
-          <button
-            on:click={clearTokens}
-            class="bg-warning hover:bg-warningHover transition-colors duration-200 text-white ml-10 w-5 h-5 flex align-middle justify-center rounded"
-            style="font-size: 1rem"
-          >
-            <img class="icon-white w-3" alt="Close" src={CloseIcon} />
-          </button>
-        </div>
-        <p class="block font-bold mt-2 text-xs">
-          {$gptModel.name} pricing.
-        </p>
-        <p class="block font-bold text-xs">
-          Averaged i/o cost per 1k tokens: {($gptModel.inputCost +
-            $gptModel.outputCost) /
-            2}
-        </p>
+      <div class="flex gap-3 mb-4 mt-1.5">
+        <a
+          href="https://openai.com/api/pricing/"
+          target="_blank" rel="noopener noreferrer"
+          class="text-sm text-gray-400">Pricing</a
+        >
+        <a
+          href="https://platform.openai.com/settings/organization/billing/overview"
+          target="_blank" rel="noopener noreferrer"
+          class="text-sm text-gray-400">Billing</a
+        >
+        <a
+          href="https://platform.openai.com/organization/usage"
+          target="_blank" rel="noopener noreferrer"
+          class="text-sm text-gray-400">Usage</a
+        >
       </div>
-      <div class="flex justify-between items-end">
         <button
           class="bg-good hover:bg-good2 transition-colors duration-200 text-white py-2 px-4 rounded"
           on:click={handleSave}>Save</button
         >
-        <a
-          href="https://github.com/patrikzudel/PatrikZeros-ChatGPT-API-UI"
-          class="text-sm text-gray-400">GitHub</a
-        >
-      </div>
     </div>
   </div>
 </div>
