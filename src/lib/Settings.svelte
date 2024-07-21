@@ -26,6 +26,24 @@
       type: assistantRoleTypeField,
     });
     switch (modelNameField) {
+      case "gpt-4o-mini-2024-07-18":
+        gptModel.set({
+          code: "gpt-4o-mini-2024-07-18",
+          name: "gpt-4o-mini-2024-07-18",
+          inputCost: 0.00015,
+          outputCost: 0.0006,
+          tokenLimit: 9999,
+        });
+        break;
+      case "gpt-4o-mini":
+        gptModel.set({
+          code: "gpt-4o-mini",
+          name: "gpt-4o-mini",
+          inputCost: 0.00015,
+          outputCost: 0.0006,
+          tokenLimit: 9999,
+        });
+        break;
       case "gpt-3.5-turbo":
         gptModel.set({
           code: "gpt-3.5-turbo",
@@ -149,6 +167,12 @@
           bind:value={modelNameField}
           class="max-w-[256px] text-black bg-white mb-2 p-2 rounded focus:outline-none focus:bg-white"
         >
+          <option value="gpt-4o-mini-2024-07-18"
+            >gpt-4o-mini-2024-07-18</option
+          >
+          <option value="gpt-4o-mini"
+            >gpt-4o-mini</option
+          >
           <option value="gpt-3.5-turbo"
             >GPT 3.5 Turbo | 4k | Main | $0.0015</option
           >
