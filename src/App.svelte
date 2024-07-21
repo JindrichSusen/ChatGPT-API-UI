@@ -145,6 +145,15 @@
     ]);
   }
 
+  function setPromptFromTemplate(event: CustomEvent<{ text: string }>) {
+    let template="";
+    switch (event.detail.text) {
+      case "C# class to TS":
+        template = "Turn this c# class into a typescript interface. Output only code, no explanation, no comments in the code.\n"
+    }
+    input = template;
+  }
+
   // Creates a new conversation
   function newChat() {
     console.log("New chat");
@@ -509,7 +518,7 @@
   >
 </head>
 <main class="bg-primary overflow-hidden">
-  <Sidebar on:new-chat={newChat} />
+  <Sidebar on:new-chat={newChat} on:template-prompt={setPromptFromTemplate}/>
 
   <div class="h-screen flex flex-col md:ml-[260px] bg-secondary text-white/80">
     <Topbar

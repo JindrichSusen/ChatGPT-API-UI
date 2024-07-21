@@ -18,8 +18,22 @@
 OR
 You are a therapist. ETC...`;
 
+  let selectedTemplate = "";
+
   function newChat() {
+    selectedTemplate = "";
     dispatch("new-chat");
+    dispatch("template-prompt", {
+      text: ""
+    });
+  }
+
+  function onTemplateSelectionChanged(event: Event ) {
+    const select = event.target as HTMLSelectElement;
+    console.log(select.value);
+    dispatch("template-prompt", {
+      text: select.value
+    });
   }
 
   function openSettings() {
@@ -62,6 +76,15 @@ You are a therapist. ETC...`;
       >
         New chat
       </button>
+            <select
+        bind:value={selectedTemplate}
+        on:change={onTemplateSelectionChanged}
+        class="py-2 px-3 rounded-md bg-primary text-white border border-white/50 cursor-pointer text-sm"
+      >
+        <option value="">Select a template</option>
+        <option value="C# class to TS">C# class to TS</option>
+
+      </select>
       <div class="py-1 select-none">
         <p class="text-left px-8 font-bold text-xl">
           PatrikZero's <br />
