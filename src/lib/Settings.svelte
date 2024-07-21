@@ -26,6 +26,15 @@
       type: assistantRoleTypeField,
     });
     switch (modelNameField) {
+      case "gpt-4o":
+        gptModel.set({
+          code: "gpt-4o",
+          name: "gpt-4o",
+          inputCost: 0.005,
+          outputCost: 0.015,
+          tokenLimit: 9999,
+        });
+        break;
       case "gpt-4o-mini-2024-07-18":
         gptModel.set({
           code: "gpt-4o-mini-2024-07-18",
@@ -167,6 +176,9 @@
           bind:value={modelNameField}
           class="max-w-[256px] text-black bg-white mb-2 p-2 rounded focus:outline-none focus:bg-white"
         >
+          <option value="gpt-4o"
+            >gpt-4o</option
+          >
           <option value="gpt-4o-mini-2024-07-18"
             >gpt-4o-mini-2024-07-18</option
           >
